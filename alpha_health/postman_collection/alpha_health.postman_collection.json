@@ -1,0 +1,373 @@
+{
+	"info": {
+		"_postman_id": "381b9ba2-7093-472c-867e-75700372dc1b",
+		"name": "alpha_health",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21759612"
+	},
+	"item": [
+		{
+			"name": "Create_auth_token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"pt031996@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/create_auth_token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"create_auth_token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateDoctor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 39f0bbafad1e23f731414363661cf8a53c1ddea8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Rajendra\",\r\n    \"last_name\": \"Mishra\",\r\n    \"phone_number\": \"874626235\",\r\n    \"email\": \"abc1@gmail.com\",\r\n    \"address\": \"kandivali, Mumbai\",\r\n    \"username\": \"rkm@gmail.com\",\r\n    \"password\": \"rk_1234\",\r\n    \"gender\": \"M\",\r\n    \"dob\": \"2022/12/11\",\r\n    \"speciality\": \"gyno\",\r\n    \"last_degree\": \"MBBS\",\r\n    \"years_of_practice\": \"20\",\r\n    \"groups\": [1]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/createDoctor/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"createDoctor",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreatePatient",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}} ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Deepak\",\r\n    \"last_name\": \"Tripathi\",\r\n    \"phone_number\": \"9521546235\",\r\n    \"email\": \"dkpt@gmail.com\",\r\n    \"address\": \"kandivali, Mumbai\",\r\n    \"username\": \"dkpt@gmail.com\",\r\n    \"password\": \"deepak_1234\",\r\n    \"gender\": \"M\",\r\n    \"dob\": \"2022/12/11\",\r\n    \"diseases\": [\"Diarrhea\", \"Diabetes\",\"Dengue\"]\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/createPatient/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"createPatient",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateAppointments",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"doctor\": 8,\r\n    \"patient\": 5,\r\n    \"appointment_date\": \"2022/12/10\",\r\n    \"from_time\": \"11:00\",\r\n    \"to_time\":\"11:45\",\r\n    \"details\": \"suffering from dengue\",\r\n    \"status\": \"B\",\r\n    \"cancalled_reason\": \"Doctor not avualable\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/createAppointments/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"createAppointments",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewDoctorProfile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/viewDoctorProfile/?id=8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"viewDoctorProfile",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewPatientProfile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/viewPatientProfile/?id=6",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"viewPatientProfile",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewAppointment",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/viewAppointment/?id=2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"viewAppointment",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePatientProfile",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 6,\r\n    \"first_name\": \"MOjo\",\r\n    \"last_name\": \"sricvas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/updatePatientProfile/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"updatePatientProfile",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateAppointmentProfile",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"appointment_date\": \"2022-12-13\",\r\n    \"from_time\": \"09:00\",\r\n    \"to_time\":\"09:55\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/updateAppointmentProfile/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"updateAppointmentProfile",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "39f0bbafad1e23f731414363661cf8a53c1ddea8"
+		}
+	]
+}
